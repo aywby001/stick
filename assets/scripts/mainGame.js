@@ -268,7 +268,7 @@ cc.Class({
         //根据当前得分计算当前难度等级
         this.lv = Math.floor(this.score/this.levelUp);
         (this.lv >= Level.length)?(this.lv=Level.length-1):(this.lv);
-        cc.log('getScore()', this.lv);
+        //cc.log('getScore()', this.lv);
     },
 
     changeHighestScoreLabel: function(){
