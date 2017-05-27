@@ -365,9 +365,9 @@ cc.Class({
 
         this.perfectLabel.getComponent(cc.Label).string = 'perfect *' + count;
 
-        var fadein = cc.fadeIn(0.1);
-        var move = cc.moveBy(1, cc.p(0, 0));
-        var fadeout = cc.fadeOut(0.5);
+        var fadein = cc.fadeIn(0.01);
+        var move = cc.moveBy(1, cc.p(0, 0));//2 ok
+        var fadeout = cc.fadeOut(0.3);
         var sq = cc.sequence(fadein, move, fadeout);
         this.perfectLabel.runAction(sq);
     },

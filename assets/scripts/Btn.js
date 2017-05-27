@@ -25,6 +25,7 @@ cc.Class({
     // },
     startGame: function(){
         cc.game.welcome.closeTimer();
+        cc.audioEngine.stopAll();
         cc.director.loadScene('game');
     },
 

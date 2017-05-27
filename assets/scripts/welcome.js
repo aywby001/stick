@@ -43,7 +43,9 @@ cc.Class({
         this.ani.play('waitting');
 
         //背景音乐
-        //cc.audioEngine.play(this.welcomeBgm, true, 1);
+        if(this.welcomeBgm){
+            cc.audioEngine.play(this.welcomeBgm, true, 1);
+        }
 
         //创建第二个平台
         this.createSecondLand();
@@ -123,6 +125,9 @@ cc.Class({
 
     stickFall: function(){
         cc.log('stickFall()');
+        //停止英雄提棍子动作
+        this.ani.stop('stick');
+
         var fall = cc.rotateBy(0.5, 90);
         fall.easing(cc.easeIn(3));
         var callFunc = cc.callFunc(this.heroMove.bind(this));
@@ -133,14 +138,14 @@ cc.Class({
     heroMove: function(){
         cc.log('heroMove()');
         var callFunc = cc.callFunc(() => {
-            this.ani.stop('run');
+            this.ani.stop('heroRun');
             this.ani.play('waitting');
             this.setTimeout2 = setTimeout(()=> {
                 this.landMoveAndCreate();
                 this.setTimeout2 = null;
             }, 5000);
         })
-        
+        this.ani.play('heroRun');
         this.runLength += this.stickLength;
 
         if(this.runLength >= 1000){
